@@ -20,6 +20,7 @@ class FirstViewController: UIViewController, SendDataDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //passing data automatically
+        //Invokes a method of the receiver on the current thread using the default mode after a delay.
         perform(#selector(advance), with: nil, afterDelay: 2)
     }
 
@@ -27,6 +28,7 @@ class FirstViewController: UIViewController, SendDataDelegate {
         let vc2 = SecondViewController()
         vc2.delegate = self
         vc2.sentTextToSecondVC = "sent Text ToSecond VC"
+        //Presents a view controller modally.
         present(vc2, animated: true, completion: nil)
     }
 
@@ -40,7 +42,11 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
+        //Get data from VC1 to VC2
         print(sentTextToSecondVC)
+        
+        //send data to VC1
+        delegate?.sendMessage(text: "Send data to VC1")
         
     }
     
