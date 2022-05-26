@@ -7,7 +7,15 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+protocol SendDataDelegate {
+    func sendMessage(text:String)
+}
+
+class FirstViewController: UIViewController, SendDataDelegate {
+    func sendMessage(text: String) {
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
